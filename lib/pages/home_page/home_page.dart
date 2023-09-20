@@ -110,10 +110,28 @@ class HomePage extends StatelessWidget {
             Positioned(
               left: MediaQuery.of(context).size.width / controller.pages.length * controller.currentIndex.value + (MediaQuery.of(context).size.width / controller.pages.length - 22) / 2,
               width: 22,
-              height: 0,
-              child: const Divider(
-                color: Color(0xFF466EFA),
-                thickness: 1,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                height: 1,
+                curve: Curves.easeInOut,
+                decoration: const BoxDecoration(
+                  color: Color(0xFF466EFA),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: MediaQuery.of(context).padding.bottom + 10,
+              left:
+                  MediaQuery.of(context).size.width / controller.pages.length * controller.currentIndex.value + (MediaQuery.of(context).size.width / controller.pages.length - 5.6) / 2,
+              width: 2.85,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                height: 2.85,
+                curve: Curves.easeInOut,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFF466EFA),
+                ),
               ),
             ),
           ],

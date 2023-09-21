@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
               onTap: (index) {
                 controller.currentIndex.value = index;
               },
-              elevation: 0,
+              elevation: 30,
               backgroundColor: const Color(0xFFF9F9FB),
               items: [
                 BottomNavigationBarItem(

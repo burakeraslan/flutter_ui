@@ -22,23 +22,21 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
+
   assets:
-  - assets/icons/
-  - assets/images/
-  
+    - assets/icons/
+    - assets/images/
+
   fonts:
 
     - family: SP400
       fonts:
         - asset: assets/fonts/SofiaProRegular.otf
-    
+
     - family: SP500
       fonts:
         - asset: assets/fonts/SofiaProMedium.otf
-    
+
     - family: SP600
       fonts:
         - asset: assets/fonts/SofiaProSemiBold.otf
-
-

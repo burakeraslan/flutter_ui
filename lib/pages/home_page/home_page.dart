@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_ui/core/svg_icons.dart';
+import 'package:flutter_ui/core/assets.dart';
 import 'package:flutter_ui/pages/home_page/home_page_controller.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +13,6 @@ class HomePage extends StatelessWidget {
 
     return Obx(
       () => Scaffold(
-        appBar: AppBar(
-          title: const Text("appbar"),
-        ),
         body: controller.pages[controller.currentIndex.value],
         bottomNavigationBar: Stack(
           children: [

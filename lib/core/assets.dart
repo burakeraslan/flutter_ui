@@ -4,4 +4,9 @@ class SvgIcons {
   static String get second => 'assets/icons/second.svg';
   static String get third => 'assets/icons/third.svg';
   static String get fourth => 'assets/icons/fourth.svg';
+  static String get notifications => 'assets/icons/notifications.svg';
+}
+
+class PngImages {
+  static String get userPp => 'assets/images/user_pp.png';
 }

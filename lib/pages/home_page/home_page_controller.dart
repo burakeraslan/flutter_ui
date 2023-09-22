@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/pages/home_page/dashboard_page/dashboard_page.dart';
+import 'package:flutter_ui/pages/home_page/sub/dashboard_page/dashboard_page.dart';
 import 'package:get/get.dart';
 
 class HomePageController extends GetxController {

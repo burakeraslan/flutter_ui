@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_ui/core/assets.dart';
 import 'package:flutter_ui/pages/home_page/sub/dashboard_page/dashboard_page_controller.dart';
 import 'package:flutter_ui/widgets/header.dart';
+import 'package:flutter_ui/widgets/quick_actions.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -13,17 +14,33 @@ class DashboardPage extends StatelessWidget {
     final controller = Get.put(DashboardPageController());
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
+        body: SafeArea(
+      child: DecoratedBox(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFFFFFFF),
+              Color(0xFFEEEEEE),
+            ],
+          ),
+        ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Header(),
+
+            // credit cards
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
               child: Row(
                   children: controller.userData.map((userData) {
                 return Container(
                   width: (MediaQuery.of(context).size.width - 60),
+                  height: (MediaQuery.of(context).size.width - 60) * 0.63,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.bottomRight,
@@ -39,6 +56,7 @@ class DashboardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
@@ -152,10 +170,43 @@ class DashboardPage extends StatelessWidget {
                   // bottom: 10,
                 );
               }).toList()),
-            )
+            ),
+
+            // for now
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 5,
+                  height: 5,
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+                  ),
+                ).marginSymmetric(horizontal: 2),
+                Container(
+                  width: 5,
+                  height: 5,
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    shape: BoxShape.circle,
+                  ),
+                ).marginSymmetric(horizontal: 2),
+                Container(
+                  width: 5,
+                  height: 5,
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    shape: BoxShape.circle,
+                  ),
+                ).marginSymmetric(horizontal: 2),
+              ],
+            ).marginOnly(top: 10),
+
+            QuickActions(controller: controller),
           ],
         ),
       ),
-    );
+    ));
   }
 }

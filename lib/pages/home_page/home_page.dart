@@ -9,10 +9,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomePageController());
+    final controller = Get.put(HomePageController());
 
-    return GetBuilder<HomePageController>(
-      builder: (controller) {
+    return Obx
+        // GetBuilder<HomePageController>
+        (
+      ()
+      // builder: (controller)
+      {
         return Scaffold(
           body: controller.pages[controller.currentIndex.value],
           bottomNavigationBar: Stack(

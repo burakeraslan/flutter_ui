@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/models/quick_actions_model.dart';
+import 'package:flutter_ui/models/services.dart';
 import 'package:flutter_ui/models/user_data_model.dart';
 import 'package:get/get.dart';
 
@@ -53,5 +54,13 @@ class DashboardPageController extends GetxController {
       icon: 'assets/images/bank_to_bank.png',
       color: const Color(0x338E949A),
     ),
+  ];
+
+  List<ServicesModel> services = [
+    ServicesModel(title: 'Recharge', icon: 'assets/icons/recharge.svg'),
+    ServicesModel(title: 'Charity', icon: 'assets/icons/charity.svg'),
+    ServicesModel(title: 'Loan', icon: 'assets/icons/loan.svg'),
+    ServicesModel(title: 'Gifts', icon: 'assets/icons/gifts.svg'),
+    ServicesModel(title: 'Insurance', icon: 'assets/icons/insurance.svg'),
   ];
 }

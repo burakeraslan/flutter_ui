@@ -4,6 +4,7 @@ import 'package:flutter_ui/core/assets.dart';
 import 'package:flutter_ui/pages/home_page/sub/dashboard_page/dashboard_page_controller.dart';
 import 'package:flutter_ui/widgets/header.dart';
 import 'package:flutter_ui/widgets/quick_actions.dart';
+import 'package:flutter_ui/widgets/schedule_payment.dart';
 import 'package:flutter_ui/widgets/services_custom_widget.dart';
 import 'package:get/get.dart';
 
@@ -208,6 +209,7 @@ class DashboardPage extends StatelessWidget {
 
               QuickActions(controller: controller),
               ServicesCustomWidget(controller: controller),
+              SchedulePayment(controller: controller).paddingAll(20),
             ],
           ),
         ),

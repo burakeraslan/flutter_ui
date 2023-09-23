@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/models/quick_actions_model.dart';
+import 'package:flutter_ui/models/schedule_payments_model.dart';
 import 'package:flutter_ui/models/services.dart';
 import 'package:flutter_ui/models/user_data_model.dart';
 import 'package:get/get.dart';
@@ -57,10 +58,46 @@ class DashboardPageController extends GetxController {
   ];
 
   List<ServicesModel> services = [
-    ServicesModel(title: 'Recharge', icon: 'assets/icons/recharge.svg'),
-    ServicesModel(title: 'Charity', icon: 'assets/icons/charity.svg'),
-    ServicesModel(title: 'Loan', icon: 'assets/icons/loan.svg'),
-    ServicesModel(title: 'Gifts', icon: 'assets/icons/gifts.svg'),
-    ServicesModel(title: 'Insurance', icon: 'assets/icons/insurance.svg'),
+    ServicesModel(
+      title: 'Recharge',
+      icon: 'assets/icons/recharge.svg',
+    ),
+    ServicesModel(
+      title: 'Charity',
+      icon: 'assets/icons/charity.svg',
+    ),
+    ServicesModel(
+      title: 'Loan',
+      icon: 'assets/icons/loan.svg',
+    ),
+    ServicesModel(
+      title: 'Gifts',
+      icon: 'assets/icons/gifts.svg',
+    ),
+    ServicesModel(
+      title: 'Insurance',
+      icon: 'assets/icons/insurance.svg',
+    ),
+  ];
+
+  List<SchedulePaymentsModel> schedulePayments = [
+    SchedulePaymentsModel(
+      title: 'Netflix',
+      icon: 'assets/images/netflix.png',
+      paymentDate: '12/04',
+      paymentAmount: '\$1.00',
+    ),
+    SchedulePaymentsModel(
+      title: 'Paypal',
+      icon: 'assets/images/paypal.png',
+      paymentDate: '14/04',
+      paymentAmount: '\$3.50',
+    ),
+    SchedulePaymentsModel(
+      title: 'Spotify',
+      icon: 'assets/images/spotify.png',
+      paymentDate: '13/04',
+      paymentAmount: '\$10.00',
+    ),
   ];
 }

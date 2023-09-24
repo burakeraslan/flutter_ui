@@ -6,6 +6,7 @@ class SvgIcons {
   static String get fourth => 'assets/icons/fourth.svg';
   static String get notifications => 'assets/icons/notifications.svg';
   static String get chip => 'assets/icons/chip.svg';
+  static String get back => 'assets/icons/back.svg';
 }
 
 class PngImages {

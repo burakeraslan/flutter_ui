@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomAppBar extends StatelessWidget {
-  final Widget firstWidget;
-  final Widget headerWidget;
-  final Widget notificationWidget;
+  final Widget prefixWidget;
+  final Widget centreWidget;
+  final Widget suffixWidget;
 
   const CustomAppBar({
     super.key,
-    required this.firstWidget,
-    required this.headerWidget,
-    required this.notificationWidget,
+    required this.prefixWidget,
+    required this.centreWidget,
+    required this.suffixWidget,
   });
 
   @override
@@ -20,11 +20,15 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          firstWidget,
-          headerWidget,
-          notificationWidget,
+          prefixWidget,
+          centreWidget,
+          suffixWidget,
         ],
       ),
-    ).paddingSymmetric(horizontal: 20);
+    ).paddingOnly(
+      left: 20,
+      right: 20,
+      top: 10,
+    );
   }
 }

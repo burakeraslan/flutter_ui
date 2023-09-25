@@ -72,11 +72,13 @@ class DashboardPageController extends GetxController {
     ),
     ServicesModel(
       title: 'Gifts',
-      icon: 'assets/icons/gifts.svg',
+      // icon: 'assets/icons/gifts.svg',
+      icon: '',
     ),
     ServicesModel(
       title: 'Insurance',
-      icon: 'assets/icons/insurance.svg',
+      // icon: 'assets/icons/insurance.svg',
+      icon: '',
     ),
   ];
 
@@ -100,4 +102,11 @@ class DashboardPageController extends GetxController {
       paymentAmount: '\$10.00',
     ),
   ];
+
+  RxInt selectedCard = 0.obs;
+
+  void updateSelectedCard(int index) {
+    selectedCard.value = index;
+    update();
+  }
 }

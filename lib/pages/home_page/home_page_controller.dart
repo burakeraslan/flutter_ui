@@ -11,4 +11,9 @@ class HomePageController extends GetxController {
     const Center(child: Text('Fourth Empty')),
   ].obs;
   RxInt currentIndex = 0.obs;
+
+  void updateCurrentIndex(int index) {
+    currentIndex.value = index;
+    update();
+  }
 }

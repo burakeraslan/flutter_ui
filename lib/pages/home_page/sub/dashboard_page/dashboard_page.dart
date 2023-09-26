@@ -51,7 +51,7 @@ class DashboardPage extends StatelessWidget {
               CustomAppBar(
                 prefixWidget: InkWell(
                   onTap: () {
-                    print('Clicked on user profile');
+                    // print('Clicked on user profile');
                   },
                   child: Image.asset(
                     PngImages.userPp,

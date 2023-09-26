@@ -12,4 +12,5 @@ class SvgIcons {
 class PngImages {
   static String get userPp => 'assets/images/user_pp.png';
   static String get card => 'assets/images/card.png';
+  static String get fingerPrint => 'assets/images/fingerprint.png';
 }

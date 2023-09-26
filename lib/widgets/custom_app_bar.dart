@@ -28,7 +28,6 @@ class CustomAppBar extends StatelessWidget {
     ).paddingOnly(
       left: 20,
       right: 20,
-      top: 10,
     );
   }
 }

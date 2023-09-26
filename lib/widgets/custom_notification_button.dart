@@ -13,7 +13,7 @@ class CustomNotificationButton extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            print('Clicked on notification icon');
+            // print('Clicked on notification icon');
           },
           child: Container(
             width: 45,

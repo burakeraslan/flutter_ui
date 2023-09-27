@@ -30,32 +30,27 @@ class GiftPageController extends GetxController {
     update();
   }
 
-  RxInt? amount;
-  Rx<Color> color100 = const Color(0x30A4A9AE).obs;
-  Rx<Color> color150 = const Color(0x30A4A9AE).obs;
-  Rx<Color> color200 = const Color(0x30A4A9AE).obs;
+  bool obscureText = false;
 
-  void updateAmount100() {
-    amount = 100.obs;
-    color100 = const Color(0xFFFFFFFF).obs;
-    color150 = const Color(0x30A4A9AE).obs;
-    color200 = const Color(0x30A4A9AE).obs;
+  void updateObscureText() {
+    obscureText = !obscureText;
     update();
   }
 
-  void updateAmount150() {
-    amount = 150.obs;
-    color100 = const Color(0x30A4A9AE).obs;
-    color150 = const Color(0xFFFFFFFF).obs;
-    color200 = const Color(0x30A4A9AE).obs;
-    update();
-  }
+  TextEditingController amountController = TextEditingController();
 
-  void updateAmount200() {
-    amount = 200.obs;
-    color100 = const Color(0x30A4A9AE).obs;
-    color150 = const Color(0x30A4A9AE).obs;
-    color200 = const Color(0xFFFFFFFF).obs;
+  List amountList = [
+    '100',
+    '150',
+    '200',
+  ];
+
+  bool isSelect = false;
+  int selectedAmountIndex = -1;
+
+  void updateAmount(String amount, int index) {
+    amountController.text = amount;
+    selectedAmountIndex = index;
     update();
   }
 }

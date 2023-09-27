@@ -6,6 +6,7 @@ import 'package:flutter_ui/widgets/custom_back_button.dart';
 import 'package:flutter_ui/widgets/custom_header.dart';
 import 'package:flutter_ui/widgets/custom_notification_button.dart';
 import 'package:flutter_ui/widgets/custom_text_input.dart';
+import 'package:flutter_ui/widgets/custom_touchable_amount_button.dart';
 import 'package:get/get.dart';
 
 class GiftPage extends StatelessWidget {
@@ -103,7 +104,7 @@ class GiftPage extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                          if (gift.isSelect == false)
+                                          if (!gift.isSelect)
                                             InkWell(
                                               onTap: () {
                                                 controller.selectGift(controller.gifts.indexOf(gift));
@@ -159,49 +160,56 @@ class GiftPage extends StatelessWidget {
                                     children: [
                                       Expanded(
                                         flex: 5,
-                                        child: TextField(
-                                          style: const TextStyle(
-                                            fontFamily: 'SP400',
-                                            fontSize: 17,
-                                            color: Colors.black,
-                                          ),
-                                          decoration: InputDecoration(
-                                            hintText: 'Password',
-                                            hintStyle: const TextStyle(
+                                        child: SizedBox(
+                                          height: 50,
+                                          child: TextField(
+                                            style: const TextStyle(
                                               fontFamily: 'SP400',
                                               fontSize: 17,
-                                              color: Color(0xFF8E949A),
+                                              color: Colors.black,
                                             ),
-                                            border: InputBorder.none,
-                                            contentPadding: const EdgeInsets.only(
-                                              left: 20,
-                                              right: 20,
-                                              top: 10,
-                                              bottom: 10,
-                                            ),
-                                            filled: true,
-                                            fillColor: const Color(0x30A4A9AE),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: BorderSide.none,
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Color(0xFF456EFE),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            suffixIcon: const Icon(
-                                              Icons.visibility_off_outlined,
-                                              color: Color(0xFF8E949A),
-                                            ),
+                                            obscureText: controller.obscureText,
+                                            decoration: InputDecoration(
+                                                hintText: 'Password',
+                                                hintStyle: const TextStyle(
+                                                  fontFamily: 'SP400',
+                                                  fontSize: 17,
+                                                  color: Color(0xFF8E949A),
+                                                ),
+                                                border: InputBorder.none,
+                                                contentPadding: const EdgeInsets.only(
+                                                  left: 20,
+                                                  right: 20,
+                                                  top: 10,
+                                                  bottom: 10,
+                                                ),
+                                                filled: true,
+                                                fillColor: const Color(0x30A4A9AE),
+                                                enabledBorder: OutlineInputBorder(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderSide: BorderSide.none,
+                                                ),
+                                                focusedBorder: OutlineInputBorder(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderSide: const BorderSide(
+                                                    color: Color(0xFF456EFE),
+                                                    width: 1,
+                                                  ),
+                                                ),
+                                                suffixIcon: IconButton(
+                                                  onPressed: () {
+                                                    controller.updateObscureText();
+                                                  },
+                                                  icon: controller.obscureText ? const Icon(Icons.visibility_off_outlined) : const Icon(Icons.visibility_outlined),
+                                                  color: const Color(0xFF8E949A),
+                                                )),
                                           ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 1,
                                         child: Container(
+                                          height: 50,
                                           decoration: BoxDecoration(
                                             color: const Color(0x30A4A9AE),
                                             borderRadius: BorderRadius.circular(10),
@@ -216,9 +224,7 @@ class GiftPage extends StatelessWidget {
                                     size: 19,
                                   ).paddingSymmetric(vertical: 10),
                                   TextField(
-                                    controller: TextEditingController(
-                                      text: controller.amount?.toString(),
-                                    ),
+                                    controller: controller.amountController,
                                     style: const TextStyle(
                                       fontFamily: 'SP600',
                                       fontSize: 22,
@@ -234,7 +240,7 @@ class GiftPage extends StatelessWidget {
                                       border: InputBorder.none,
                                       contentPadding: const EdgeInsets.all(20),
                                       filled: true,
-                                      fillColor: Colors.white,
+                                      fillColor: const Color(0x30A4A9AE),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide.none,
@@ -253,74 +259,28 @@ class GiftPage extends StatelessWidget {
                                     children: [
                                       Expanded(
                                         flex: 1,
-                                        child: InkWell(
-                                          onTap: () {
-                                            controller.updateAmount100();
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            padding: const EdgeInsets.all(10),
-                                            decoration: BoxDecoration(
-                                              color: controller.color100.value,
-                                              borderRadius: BorderRadius.circular(10),
-                                            ),
-                                            child: const Text(
-                                              '\$100',
-                                              style: TextStyle(
-                                                color: Color(0xFF8E949A),
-                                                fontFamily: 'SP600',
-                                                fontSize: 22,
-                                              ),
-                                            ),
-                                          ).paddingOnly(top: 5, bottom: 5, right: 10),
+                                        child: const CustomTouchableAmountButton(
+                                          index: 0,
+                                        ).paddingOnly(
+                                          top: 5,
+                                          bottom: 5,
+                                          right: 10,
                                         ),
                                       ),
                                       Expanded(
                                         flex: 1,
-                                        child: InkWell(
-                                          onTap: () {
-                                            controller.updateAmount150();
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            padding: const EdgeInsets.all(10),
-                                            decoration: BoxDecoration(
-                                              color: controller.color150.value,
-                                              borderRadius: BorderRadius.circular(10),
-                                            ),
-                                            child: const Text(
-                                              '\$150',
-                                              style: TextStyle(
-                                                color: Color(0xFF8E949A),
-                                                fontFamily: 'SP600',
-                                                fontSize: 22,
-                                              ),
-                                            ),
-                                          ).paddingSymmetric(vertical: 5, horizontal: 10),
-                                        ),
+                                        child: const CustomTouchableAmountButton(
+                                          index: 1,
+                                        ).paddingSymmetric(vertical: 5),
                                       ),
                                       Expanded(
                                         flex: 1,
-                                        child: InkWell(
-                                          onTap: () {
-                                            controller.updateAmount200();
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            padding: const EdgeInsets.all(10),
-                                            decoration: BoxDecoration(
-                                              color: controller.color200.value,
-                                              borderRadius: BorderRadius.circular(10),
-                                            ),
-                                            child: const Text(
-                                              '\$200',
-                                              style: TextStyle(
-                                                color: Color(0xFF8E949A),
-                                                fontFamily: 'SP600',
-                                                fontSize: 22,
-                                              ),
-                                            ),
-                                          ).paddingOnly(top: 5, bottom: 5, left: 10),
+                                        child: const CustomTouchableAmountButton(
+                                          index: 2,
+                                        ).paddingOnly(
+                                          top: 5,
+                                          bottom: 5,
+                                          left: 10,
                                         ),
                                       ),
                                     ],
@@ -366,6 +326,7 @@ class GiftPage extends StatelessWidget {
                                       controller.selectGift(controller.gifts.indexOf(gift));
                                     },
                                     child: Container(
+                                      height: 50,
                                       alignment: Alignment.center,
                                       padding: const EdgeInsets.symmetric(vertical: 15),
                                       decoration: BoxDecoration(

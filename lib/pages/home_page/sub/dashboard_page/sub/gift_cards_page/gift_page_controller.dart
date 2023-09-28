@@ -53,4 +53,66 @@ class GiftPageController extends GetxController {
     selectedAmountIndex = index;
     update();
   }
+
+  FocusNode nameInputFocusNode = FocusNode();
+  FocusNode accountNumberInputFocusNode = FocusNode();
+  FocusNode recieverNumberInputFocusNode = FocusNode();
+  FocusNode purposeInputFocusNode = FocusNode();
+  FocusNode passwordInputFocusNode = FocusNode();
+  FocusNode amountInputFocusNode = FocusNode();
+  FocusNode messageInputFocusNode = FocusNode();
+
+  bool nameInputFocus = false;
+  bool accountNumberInputFocus = false;
+  bool recieverNumberInputFocus = false;
+  bool purposeInputFocus = false;
+  bool passwordInputFocus = false;
+  bool amountInputFocus = false;
+  bool messageInputFocus = false;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    nameInputFocusNode.addListener(() {
+      nameInputFocus = nameInputFocusNode.hasFocus;
+      update();
+    });
+    accountNumberInputFocusNode.addListener(() {
+      accountNumberInputFocus = accountNumberInputFocusNode.hasFocus;
+      update();
+    });
+    recieverNumberInputFocusNode.addListener(() {
+      recieverNumberInputFocus = recieverNumberInputFocusNode.hasFocus;
+      update();
+    });
+    purposeInputFocusNode.addListener(() {
+      purposeInputFocus = purposeInputFocusNode.hasFocus;
+      update();
+    });
+    passwordInputFocusNode.addListener(() {
+      passwordInputFocus = passwordInputFocusNode.hasFocus;
+      update();
+    });
+    amountInputFocusNode.addListener(() {
+      amountInputFocus = amountInputFocusNode.hasFocus;
+      update();
+    });
+    messageInputFocusNode.addListener(() {
+      messageInputFocus = messageInputFocusNode.hasFocus;
+      update();
+    });
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    nameInputFocusNode.dispose();
+    accountNumberInputFocusNode.dispose();
+    recieverNumberInputFocusNode.dispose();
+    purposeInputFocusNode.dispose();
+    passwordInputFocusNode.dispose();
+    amountInputFocusNode.dispose();
+    messageInputFocusNode.dispose();
+  }
 }

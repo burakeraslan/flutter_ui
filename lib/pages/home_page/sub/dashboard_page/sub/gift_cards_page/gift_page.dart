@@ -144,17 +144,26 @@ class GiftPage extends StatelessWidget {
                                     header: 'Add Recipient Bank Detail',
                                     size: 19,
                                   ).paddingSymmetric(vertical: 10),
-                                  const CustomTextInput(
+                                  CustomTextInput(
                                     hintText: 'Name',
+                                    focusNode: controller.nameInputFocusNode,
+                                    isFocus: controller.nameInputFocus,
+                                    // isFocus: controller.nameInputFocusNode.hasFocus,
                                   ).paddingSymmetric(vertical: 5),
-                                  const CustomTextInput(
+                                  CustomTextInput(
                                     hintText: 'Enter Account Number',
+                                    focusNode: controller.accountNumberInputFocusNode,
+                                    isFocus: controller.accountNumberInputFocus,
                                   ).paddingSymmetric(vertical: 5),
-                                  const CustomTextInput(
+                                  CustomTextInput(
                                     hintText: 'Reciever’s Mobile Number',
+                                    focusNode: controller.recieverNumberInputFocusNode,
+                                    isFocus: controller.recieverNumberInputFocus,
                                   ).paddingSymmetric(vertical: 5),
-                                  const CustomTextInput(
+                                  CustomTextInput(
                                     hintText: 'Purpose of payment (Optional)',
+                                    focusNode: controller.purposeInputFocusNode,
+                                    isFocus: controller.purposeInputFocus,
                                   ).paddingSymmetric(vertical: 5),
                                   Row(
                                     children: [
@@ -168,6 +177,7 @@ class GiftPage extends StatelessWidget {
                                               fontSize: 17,
                                               color: Colors.black,
                                             ),
+                                            focusNode: controller.passwordInputFocusNode,
                                             obscureText: controller.obscureText,
                                             decoration: InputDecoration(
                                                 hintText: 'Password',
@@ -184,7 +194,7 @@ class GiftPage extends StatelessWidget {
                                                   bottom: 10,
                                                 ),
                                                 filled: true,
-                                                fillColor: const Color(0x30A4A9AE),
+                                                fillColor: controller.passwordInputFocus ? Colors.white : const Color(0x30A4A9AE),
                                                 enabledBorder: OutlineInputBorder(
                                                   borderRadius: BorderRadius.circular(10),
                                                   borderSide: BorderSide.none,
@@ -225,6 +235,7 @@ class GiftPage extends StatelessWidget {
                                   ).paddingSymmetric(vertical: 10),
                                   TextField(
                                     controller: controller.amountController,
+                                    focusNode: controller.amountInputFocusNode,
                                     style: const TextStyle(
                                       fontFamily: 'SP600',
                                       fontSize: 22,
@@ -240,7 +251,7 @@ class GiftPage extends StatelessWidget {
                                       border: InputBorder.none,
                                       contentPadding: const EdgeInsets.all(20),
                                       filled: true,
-                                      fillColor: const Color(0x30A4A9AE),
+                                      fillColor: controller.amountInputFocus ? Colors.white : const Color(0x30A4A9AE),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide.none,
@@ -292,6 +303,7 @@ class GiftPage extends StatelessWidget {
                                   TextField(
                                     maxLines: 5,
                                     keyboardType: TextInputType.multiline,
+                                    focusNode: controller.messageInputFocusNode,
                                     style: const TextStyle(
                                       fontFamily: 'SP400',
                                       fontSize: 17,
@@ -307,7 +319,7 @@ class GiftPage extends StatelessWidget {
                                       border: InputBorder.none,
                                       contentPadding: const EdgeInsets.all(20),
                                       filled: true,
-                                      fillColor: const Color(0x30A4A9AE),
+                                      fillColor: controller.messageInputFocus ? Colors.white : const Color(0x30A4A9AE),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide.none,

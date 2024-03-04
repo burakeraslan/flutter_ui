@@ -72,13 +72,13 @@ class DashboardPageController extends GetxController {
     ),
     ServicesModel(
       title: 'Gifts',
-      // icon: 'assets/icons/gifts.svg',
-      icon: '',
+      icon: 'assets/icons/none.svg',
+      // icon: '',
     ),
     ServicesModel(
       title: 'Insurance',
-      // icon: 'assets/icons/insurance.svg',
-      icon: '',
+      icon: 'assets/icons/none.svg',
+      // icon: '',
     ),
   ];
 

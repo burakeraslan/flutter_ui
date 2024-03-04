@@ -74,7 +74,7 @@ class DashboardPage extends StatelessWidget {
                         CarouselSlider.builder(
                           itemCount: controller.userData.length,
                           options: CarouselOptions(
-                            height: 220,
+                            height: 265,
                             padEnds: true,
                             enableInfiniteScroll: false,
                             viewportFraction: 0.9,

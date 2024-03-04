@@ -70,6 +70,7 @@ class GiftPageController extends GetxController {
   bool amountInputFocus = false;
   bool messageInputFocus = false;
 
+  // TODO: düzelt
   @override
   void onInit() {
     super.onInit();
@@ -103,6 +104,8 @@ class GiftPageController extends GetxController {
       update();
     });
   }
+
+  // TODO: düzelt
 
   @override
   void onClose() {
